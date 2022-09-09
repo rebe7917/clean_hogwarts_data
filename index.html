@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HOGWARTS CLEAN DATA</title>
+  </head>
+  <body>
+    <h1>CLEANING DATA - HOGWARTS</h1>
+    
+    
+    <table id="list">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Middlename</th>
+            <th>Lastname</th>
+            <th>Nickname</th>
+            <th>Gender</th>
+            <th>House</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- students template will be copied and inserted here -->
+        </tbody>
+    </table>
+
+      
+
+    <template id="student">
+        <tr>
+          <td data-field="firstName">FIRSTNAME</td>
+          <td data-field="middleName">MIDDLENAME</td>
+          <td data-field="lastName">LASTNAME</td>
+          <td data-field="nickName">NICKNAME</td>
+          <td data-field="gender">GENDER</td>
+          <td data-field="house">HOUSE</td>
+        </tr>
+      </template>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
