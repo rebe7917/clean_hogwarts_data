@@ -107,4 +107,19 @@ function prepareStudents() {
 }
 function showAllStudents() {
   console.table(data.studentArray);
+  // display
+  
+
+  /* data.studentArray.forEach((student) => {
+    const klon = document.querySelector("template#student").content.cloneNode(true);
+    //const template = document.querySelector("#student");
+    //let klon = template.cloneNode(true).content;
+    klon.querySelector("[data-field=firstName]").textContent = `FIRSTNAME: ${student.firstName}`;
+    klon.querySelector("[data-field=middleName]").textContent = `MIDDLENAME: ${student.middleName}`;
+    klon.querySelector("[data-field=lastName]").textContent = `LASTNAME: ${student.lastName}`;
+    klon.querySelector("[data-field=nickName]").textContent = `NICKNAME: ${student.nickName}`;
+    klon.querySelector("[data-field=gender]").textContent = `GENDER: ${student.gender}`;
+    klon.querySelector("[data-field=house]").textContent = `HOUSE: ${student.house}`;
+    klon.querySelector("[data-field=image]").src = `/images/${student.image}.png`;
+    document.querySelector("tbody#list ").appendChild( clone ); */
 }
