@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>HOGWARTS CLEAN DATA</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>CLEANING DATA - HOGWARTS</h1>
     
-    
+    <p>
+      Filter:
+       <button class="filter" data-action="filter" data-filter="all">All Students</button>
+      <button class="filter" data-action="filter" data-filter="firstname_btn">Firstname</button>
+      <button class="filter" data-action="filter" data-filter="lastname_btn">Lastname</button>
+      <button class="filter" data-action="filter" data-filter="house_btn">House</button>
+    </p>
     <table id="list">
         <thead>
           <tr>
@@ -19,6 +26,7 @@
             <th>Nickname</th>
             <th>Gender</th>
             <th>House</th>
+            <th>Image</th>
           </tr>
         </thead>
         <tbody>
@@ -29,17 +37,27 @@
       
 
     <template id="student">
-        <tr>
-          <td data-field="firstName">FIRSTNAME</td>
-          <td data-field="middleName">MIDDLENAME</td>
-          <td data-field="lastName">LASTNAME</td>
-          <td data-field="nickName">NICKNAME</td>
-          <td data-field="gender">GENDER</td>
-          <td data-field="house">HOUSE</td>
-          <td data-field="image">IMAGE</td>
-        </tr>
+   <!--      <tr>
+          <td data-field="firstName">Firstname</td>
+          <td data-field="middleName">Middlename</td>
+          <td data-field="lastName">Lastname</td>
+          <td data-field="nickName">Nickname</td>
+          <td data-field="gender">Gender</td>
+          <td data-field="house">House</td>
+          <td  data-field="image" class="images">Image</td>
+          <img class="image"src="" alt="">
+        </tr> -->
+        <li>
+          <img class="images" data-field="image"  src="" alt="">
+          <p data-field="firstName">Firstname</p>
+          <p data-field="middleName"> Middlename</p>
+          <p data-field="nickName">Nickname</p>
+          <p data-field="lastName"></p>
+          <p data-field="gender"></p>
+          <p data-field="house"></p>
+        </li>
       </template>
     
-    <script src="script.js"></script> 
+    <script src="script_copy.js"></script> 
   </body>
 </html>

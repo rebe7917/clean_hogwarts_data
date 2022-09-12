@@ -10,7 +10,7 @@ const data = {};
 const Student = {
   firstName: "",
   nickName: "",
-  middelName: "",
+  middleName: "",
   lastName: "",
   gender: "",
   house: "",
@@ -54,7 +54,7 @@ function prepareStudents() {
 
     //MIDDLENAME
     //trim + uppercase on the first letter and the rest lowercase
-    student.middelName =
+    student.middleName =
       fullname
         .substring(fullname.indexOf(" "), fullname.lastIndexOf(" "))
         .trim()
@@ -65,13 +65,14 @@ function prepareStudents() {
         .trim()
         .substring(1)
         .toLowerCase();
-    //console.log(student.middelName);
+    //console.log(student.middleName);
   
     //MIDDLENAME
       if (fullname.includes(`"`)){
         student.nickName = fullname.substring(fullname.indexOf(`"`) + 1, fullname.indexOf(`"`) + 2).toUpperCase() + fullname.substring(fullname.indexOf(`"`) + 2, fullname.lastIndexOf(`"`)).toLowerCase();
         //removing the name fron the middlename because its a nickname
-        student.middelName= "";
+        student.middleName= "";
+        //console.log(student.nickName)
       }
         //LASTNAME
         //trim + uppercase on the first letter and the rest lowercase
@@ -98,6 +99,7 @@ function prepareStudents() {
     //IMAGE
     if (fullname.includes("-")){
         student.image = fullname.substring(fullname.lastIndexOf("-") + 1).toLowerCase() + "-" + fullname.substring(0,1).toLowerCase() + ".png";
+        console.log(student.image)
     }
       //PUSH STUDENTS
       data.studentArray.push(student);
@@ -106,20 +108,24 @@ function prepareStudents() {
   showAllStudents();
 }
 function showAllStudents() {
-  console.table(data.studentArray);
+  //console.table(data.studentArray);
   // display
-  
+  const studentList = document.querySelector("#list");
+  data.studentArray.forEach((student) =>{
+    //variabler
+    const template = document.querySelector("#student");
+    let klon = template.cloneNode(true).content;
+    //kloning
 
-  /* data.studentArray.forEach((student) => {
-    const klon = document.querySelector("template#student").content.cloneNode(true);
-    //const template = document.querySelector("#student");
-    //let klon = template.cloneNode(true).content;
-    klon.querySelector("[data-field=firstName]").textContent = `FIRSTNAME: ${student.firstName}`;
-    klon.querySelector("[data-field=middleName]").textContent = `MIDDLENAME: ${student.middleName}`;
-    klon.querySelector("[data-field=lastName]").textContent = `LASTNAME: ${student.lastName}`;
-    klon.querySelector("[data-field=nickName]").textContent = `NICKNAME: ${student.nickName}`;
-    klon.querySelector("[data-field=gender]").textContent = `GENDER: ${student.gender}`;
-    klon.querySelector("[data-field=house]").textContent = `HOUSE: ${student.house}`;
+    klon.querySelector("[data-field=firstName]").textContent = `Firstname: ${student.firstName}`;
+    klon.querySelector("[data-field=middleName]").textContent = `Middlename: ${student.middleName}`;
+    klon.querySelector("[data-field=nickName]").textContent = `NickName: ${student.nickName}`;
+    klon.querySelector("[data-field=lastName]").textContent = `Lastname: ${student.lastName}`;
+    klon.querySelector("[data-field=gender]").textContent = `Gender: ${student.gender}`;
+    klon.querySelector("[data-field=house]").textContent = `House: ${student.house}`;
     klon.querySelector("[data-field=image]").src = `/images/${student.image}.png`;
-    document.querySelector("tbody#list ").appendChild( clone ); */
+   studentList.appendChild(klon);
+
+  })
+  
 }
