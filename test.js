@@ -10,7 +10,7 @@ const Student = {
   lastName: "",
   gender: "",
   house: "",
-  image: "null",
+  image: "",
 };
 
 let allStudents;
@@ -78,22 +78,19 @@ function sortFirstNames() {
   allStudents.sort(compareFirstNames);
   displayList(allStudents);
 }
-
 //lastname
-
 function sortLastNames() {
   console.log("sorting by lastname clicked");
   allStudents.sort(compareLastNames);
   displayList(allStudents);
 }
-
 //house
 function sortHouses() {
   console.log("sorting by house");
   allStudents.sort(compareHouses);
   displayList(allStudents);
 }
-
+//load json
 async function loadJSON() {
   const response = await fetch("studentlist.json");
   const jsonData = await response.json();
@@ -101,14 +98,14 @@ async function loadJSON() {
   // when loaded, prepare data objects
   prepareObjects(jsonData);
 }
-
+//??
 function prepareObjects(jsonData) {
   allStudents = jsonData.map(preapareObject);
 
   // TODO: This might not be the function we want to call first
   displayList(allStudents);
 }
-
+// cleaning data
 function preapareObject(jsonElmObject) {
   const student = Object.create(Student);
 
@@ -194,45 +191,55 @@ function preapareObject(jsonElmObject) {
 
   return student;
 }
-
+//tømmer liste til filter array og sender til displaystudents
 function displayList(student) {
   // clear the list
   document.querySelector("#list tbody").innerHTML = "";
   // build a new list
   student.forEach(displayStudents);
 }
-
+//klone og display studentlist
 function displayStudents() {
   //console.table(data.studentArray);
   const studentList = document.querySelector("#list");
 
   allStudents.forEach((student) => {
-    const template = document.querySelector("#student");
-    let klon = template.cloneNode(true).content;
+    const template = document.querySelector("#student").content;
+    let klon = template.cloneNode(true);
 
-    klon.querySelector(
-      "[data-field=firstName]"
-    ).textContent = `Firstname: ${student.firstName}`;
-    klon.querySelector(
-      "[data-field=middleName]"
-    ).textContent = `Middlename: ${student.middleName}`;
-    klon.querySelector(
-      "[data-field=nickName]"
-    ).textContent = `NickName: ${student.nickName}`;
-    klon.querySelector(
-      "[data-field=lastName]"
-    ).textContent = `Lastname: ${student.lastName}`;
-    klon.querySelector(
-      "[data-field=gender]"
-    ).textContent = `Gender: ${student.gender}`;
-    klon.querySelector(
-      "[data-field=house]"
-    ).textContent = `House: ${student.house}`;
+    klon.querySelector("[data-field=firstName]").textContent = `Firstname: ${student.firstName}`;
+    klon.querySelector("[data-field=middleName]").textContent = `Middlename: ${student.middleName}`;
+    klon.querySelector("[data-field=nickName]").textContent = `NickName: ${student.nickName}`;
+    klon.querySelector("[data-field=lastName]").textContent = `Lastname: ${student.lastName}`;
+    klon.querySelector("[data-field=gender]").textContent = `Gender: ${student.gender}`;
+    klon.querySelector("[data-field=house]").textContent = `House: ${student.house}`;
     klon.querySelector(".images").src = `/images/${student.image}`;
+      //popup
+    //klon.querySelector("#student").addEventListener("click", () => details(student));
 
     studentList.appendChild(klon);
   });
 }
+
+//popup
+//function for showing json data in modal/popup 
+  /*     function details(student) {
+        popup.querySelector("[data-field=firstName]").textContent = `Firstname: ${student.firstName}`;
+        popup.querySelector("[data-field=middleName]").textContent = `Middlename: ${student.middelName}`;
+        popup.querySelector("[data-field=nickName]").textContent = `Firstname: ${student.nickName}`;
+        popup.querySelector("[data-field=lastName]").textContent = `Firstname: ${student.lastName}`;
+        popup.querySelector("[data-field=gender]").textContent = `Firstname: ${student.gender}`;
+        popup.querySelector("[data-field=house]").textContent = `Firstname: ${student.house}`;
+        popup.querySelector(".images").src = `/images/${student.image}`;
+
+        popup.style.display = "block" ;
+      
+      }
+      // close the popup box - click on the popup 
+      popup.addEventListener("click", () => (popup.style.display = "none")); */
+
+
+//filter functions / ifs
 //gryffindor
 function isGryffindor(student) {
   console.log("gryffindor clicked");
@@ -270,7 +277,7 @@ function isSlytherin(student) {
   return false;
 }
 
-//sort
+//sort/compare function
 function compareFirstNames(a, b) {
   if (a.firstName < b.firstName) {
     return -1;

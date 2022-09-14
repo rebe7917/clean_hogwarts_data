@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Animalbase filtered</title>
+    <title>Hogwarts</title>
     <link rel="stylesheet" href="style2.css">
   </head>
   <body>
     <h1>Hogwarts Students</h1>
     <h2>Class of 1991</h2>
+    <img src="images/granger_h.png" alt="">
     <p>
       Filter:
       <button class="filter" data-action="filter" data-filter="all">All students</button>
@@ -36,7 +37,7 @@
     </table>
 
      <template id="student"> <!-- skabelon til studentlist -->
-           <tr>
+        <!--    <tr>
           <td data-field="firstName">Firstname</td>
           <td data-field="middleName">Middlename</td>
           <td data-field="lastName">Lastname</td>
@@ -44,9 +45,9 @@
           <td data-field="gender">Gender</td>
           <td data-field="house">House</td>
           <td  data-field="image" class="images">Image</td>
-        <!--   <img class="image"src="" alt=""> -->
-        </tr> 
-     <!--    <li>
+      
+        </tr>  -->
+        <li>
           <img class="images" data-field="image"  src="" alt="">
           <p data-field="firstName">Firstname</p>
           <p data-field="middleName"> Middlename</p>
@@ -54,8 +55,20 @@
           <p data-field="lastName"></p>
           <p data-field="gender"></p>
           <p data-field="house"></p>
-        </li> -->
+        </li>
       </template>
+
+     <!--      <aside id="popup">
+        <article id="details">
+          <img class="student_image" src="" alt="">
+          <p class="firstname"></p>
+          <p class="middlename"></p>
+          <p class="nickname"></p>
+          <p class="lastname"></p>
+          <p class="gender"></p>
+          <p class="house"></p>
+        </article>
+      </aside> -->
 
     
     <script src="test.js"></script>
